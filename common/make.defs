@@ -20,7 +20,7 @@ CLINKER   = $(WASM_LD)
 MPICC     = $(WASM_CC)
 
 # Compiler flags
-DEFAULT_OPT_FLAGS = $(WASM_CFLAGS_NO_QUOTES) -lfaasmpi -lfaasm -ldlmalloc
+DEFAULT_OPT_FLAGS = $(WASM_CFLAGS_NO_QUOTES) -lfaasmpi -lfaasm -ldlmalloc -Xlinker --max-memory=4294901760 -Wl,-z,stack-size=4194304 -Wl, -Xlinker --export=main -Xlinker --stack-first
 
 # No Fortran support
 MPIF90 =
