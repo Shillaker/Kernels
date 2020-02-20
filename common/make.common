@@ -14,6 +14,7 @@ endif
 
 $(PROGRAM):$(OBJS)
 	$(CLINKER) -o $(PROGRAM) $(LIBPATHS)  $(CFLAGS) $(OBJS) $(EXTOBJS) $(LIBS)
+	cp $(PROGRAM) ../../wasm/$(PROGRAM).wasm
 
 
 ifeq ($(PROG_ENV),-DCHARMXX)
@@ -55,4 +56,4 @@ OPENMP_bail_out.o:$(COMMON)/OPENMP_bail_out.c
 	$(CCOMPILER) $(CFLAGS) $(TUNEFLAGS) $(INCLUDEPATHSPLUS) -c $<
  
 clean:
-	rm -f $(OBJS)  $(PROGRAM) *.optrpt *~ charmrun stats.json $(PROGRAM).decl.h $(PROGRAM).def.h
+	rm -f $(OBJS)  $(PROGRAM) *.optrpt *~ charmrun stats.json $(PROGRAM).decl.h $(PROGRAM).def.h ../../wasm/$(PROGRAM).wasm
