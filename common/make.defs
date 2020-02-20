@@ -1,32 +1,33 @@
 # This file is imported in a range of locations, hence we need
 # to provide an absolute path to the Faasm toolchain 
 # definitions.  
-FAASM_ROOT=/usr/local/code/faasm
+FAASM_ROOT = /usr/local/code/faasm
 include $(FAASM_ROOT)/toolchain/Makefile.envs
 
 # Standard build env
-CC=$(WASM_CC)
-CXX=$(WASM_CXX)
-CPP=$(WASM_CPP)
-AR=$(WASM_AR)
-NM=$(WASM_NM)
-RANLIB=$(WASM_RANLIB)
-LD=$(WASM_LD)
-CCOMPILER=$(WASM_CC)
-LDFLAGS=$(WASM_LDFLAGS)
+CC      = $(WASM_CC)
+CXX     = $(WASM_CXX)
+CPP     = $(WASM_CPP)
+AR      = $(WASM_AR)
+NM      = $(WASM_NM)
+RANLIB  = $(WASM_RANLIB)
+LD      = $(WASM_LD)
+LDFLAGS = $(WASM_LDFLAGS)
+
+# Project-specific
+CCOMPILER = $(WASM_CC)
+CLINKER   = $(WASM_LD)
+MPICC     = $(WASM_CC)
 
 # Compiler flags
-DEFAULT_OPT_FLAGS=$(WASM_CFLAGS)
-
-# We use standard compiler for MPI stuff
-MPICC=$(WASM_CC)
+DEFAULT_OPT_FLAGS = $(WASM_CFLAGS_NO_QUOTES) -lfaasmpi -lfaasm -ldlmalloc
 
 # No Fortran support
-MPIF90=
-FC=
+MPIF90 =
+FC     =
 
 # OpenMP support
-OPENMPFLAG=-fopenmp
-OFFLOADFLAG=-fopenmp
-OPENMPSIMDFLAG=-fopenmp-simd
+OPENMPFLAG     = -fopenmp
+OFFLOADFLAG    = -fopenmp
+OPENMPSIMDFLAG = -fopenmp-simd
 
