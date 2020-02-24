@@ -1,0 +1,26 @@
+# This is used for a native build in Faasm
+
+LLVM_ROOT=/usr/lib/llvm-8
+LLVM_PATH=/usr/bin
+
+CC=${LLVM_PATH}clang -std=c11 -pthread
+CXX=${LLVM_PATH}clang++ -std=c++17 -pthread
+
+CCOMPILER=$(CC)
+MPICC=/usr/local/faasm/openmpi/bin/mpicc
+
+# Ignore Fortran
+MPIF90=
+FC=
+
+DEFAULT_OPT_FLAGS=-g -O3 -mtune=native -ffast-math
+DEFAULT_OPT_FLAGS+=-Wall
+DEFAULT_OPT_FLAGS+=-Wno-ignored-attributes -Wno-deprecated-declarations
+DEFAULT_OPT_FLAGS+=-I/usr/local/faasm/openmpi/include
+DEFAULT_OPT_FLAGS+=-L/usr/local/faasm/openmpi/lib -lmpi
+
+OPENMPFLAG=-fopenmp
+OPENMPSIMDFLAG=-fopenmp-simd
+OFFLOADFLAG=-fopenmp
+OPENMPFLAG+=-L${LLVM_ROOT}/lib
+
