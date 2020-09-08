@@ -2,7 +2,7 @@
 # to provide an absolute path to the Faasm toolchain 
 # definitions.  
 FAASM_ROOT = /usr/local/code/faasm
-include $(FAASM_ROOT)/toolchain/Makefile.envs
+include $(FAASM_ROOT)/third-party/faasm-toolchain/Makefile.envs
 
 # Standard build env
 CC      = $(WASM_CC)
@@ -20,7 +20,7 @@ CLINKER   = $(WASM_LD)
 MPICC     = $(WASM_CC)
 
 # Compiler flags
-DEFAULT_OPT_FLAGS = $(WASM_CFLAGS_NO_QUOTES) -lfaasmpi -lfaasm -ldlmalloc -Xlinker --max-memory=4294901760 -Wl,-z,stack-size=4194304 -Wl, -Xlinker --export=main -Xlinker --stack-first
+DEFAULT_OPT_FLAGS = $(WASM_CFLAGS_NO_QUOTES) -lfaasm -Xlinker --max-memory=4294901760 -Wl,-z,stack-size=4194304 -Wl, -Xlinker --export=main -Xlinker --stack-first
 
 # No Fortran support
 MPIF90 =
