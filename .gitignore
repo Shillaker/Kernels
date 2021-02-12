@@ -17,7 +17,6 @@ octave-workspace                # Octave crashes
 *.patch                         # patch files
 *.dbg                           # Flang
 
-common/make.defs
 scripts/small/runfgmpi
 scripts/wide/runfgmpi
 scripts/small/runfenix
