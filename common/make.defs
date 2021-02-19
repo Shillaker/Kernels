@@ -2,7 +2,7 @@
 # to provide an absolute path to the Faasm toolchain 
 # definitions.  
 FAASM_ROOT = /usr/local/code/faasm
-include $(FAASM_ROOT)/third-party/faasm-toolchain/Makefile.envs
+include /usr/local/code/faasm-toolchain/Makefile.envs
 
 # Standard build env
 CC      = $(WASM_CC)
