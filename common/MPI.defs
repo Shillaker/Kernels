@@ -5,3 +5,6 @@ CLINKER=$(CCOMPILER)
 COMOBJS=MPI_bail_out.o wtime.o
 
 PROG_ENV=-DMPI
+
+LIBS    = ${FAASM_SYSROOT}/lib/wasm32-wasi/libfaasmpi.a \
+          ${FAASM_SYSROOT}/lib/wasm32-wasi/libfaabricmpi.a

@@ -9,9 +9,8 @@ OPTFLAGS     = $(DEFAULT_OPT_FLAGS)
 
 USERFLAGS     =    
 #description: parameter to specify optional flags
-
 EXTOBJS      = 
-LIBS         = -lm
+LIBS         += -lm 
 LIBPATHS     = 
 INCLUDEPATHS = 
 
