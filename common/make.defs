@@ -3,7 +3,7 @@
 # definitions.  
 FAASM_ROOT = /usr/local/code/faasm
 FAASM_SYSROOT = /usr/local/faasm/llvm-sysroot
-include /usr/local/code/faasm-toolchain/Makefile.envs
+include /usr/local/code/faasm/toolchain/tools/Makefile.envs
 
 # Standard build env
 CC      = $(WASM_CC)
